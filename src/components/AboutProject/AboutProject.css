@@ -75,7 +75,7 @@
   margin-right: 30px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .about {
     padding: 90px 50px;
   }
@@ -90,11 +90,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .about {
-    padding: 70px 18px;
-  }
-
+@media screen and (max-width: 700px) {
   .about__container:first-of-type {
     flex-direction: column;
     margin-top: 60px;
@@ -143,5 +139,11 @@
   }
   .about__info:last-of-type {
     margin-top: 56px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .about {
+    padding: 70px 18px;
   }
 }

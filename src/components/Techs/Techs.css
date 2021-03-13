@@ -54,7 +54,6 @@
   margin: 0;
 }
 
-
 @media screen and (max-width: 870px) {
   .techs {
     padding: 90px 50px;
@@ -88,9 +87,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .techs {
-    padding: 70px 18px;
-  }
   .techs__list {
     grid-template-columns: repeat(5, 84px);
     gap: 10px;
@@ -124,5 +120,11 @@
 
   .techs__container {
     margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .techs {
+    padding: 70px 18px;
   }
 }

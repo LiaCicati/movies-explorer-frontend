@@ -142,4 +142,9 @@
  .student__job {
    margin : 20px 0;
  }
+
+ .student__image {
+   height: 352px;
+ }
 }
+
