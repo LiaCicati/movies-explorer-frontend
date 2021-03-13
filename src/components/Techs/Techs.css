@@ -1,10 +1,12 @@
 .techs {
   padding: 100px 70px;
 }
+
 .techs__container {
   margin-top: 90px;
   text-align: center;
 }
+
 .techs__title {
   letter-spacing: -0.04em;
   color: #000000;
@@ -21,6 +23,7 @@
   line-height: 20px;
   margin: 0;
 }
+
 .techs__list {
   display: grid;
   grid-template-columns: repeat(7, 90px);
@@ -31,6 +34,7 @@
   padding: 0;
   list-style: none;
 }
+
 .techs__list-item {
   display: flex;
   align-items: center;
@@ -49,6 +53,7 @@
   line-height: 17px;
   margin: 0;
 }
+
 
 @media screen and (max-width: 870px) {
   .techs {

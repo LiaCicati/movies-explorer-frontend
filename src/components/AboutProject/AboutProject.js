@@ -1,5 +1,6 @@
 import "./AboutProject.css";
 import SectionHeading from "../SectionHeading/SectionHeading";
+
 const AboutProject = () => {
   return (
     <section className="about">

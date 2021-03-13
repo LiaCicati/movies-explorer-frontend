@@ -1,5 +1,6 @@
 import "./Promo.css";
 import promoLogo from "../../images/landing-logo.svg";
+
 const Promo = () => {
   return (
     <section className="promo">

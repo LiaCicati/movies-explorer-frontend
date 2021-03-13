@@ -1,4 +1,5 @@
 import "./SectionHeading.css";
+
 const SectionHeading = ({ title }) => {
   return (
     <>

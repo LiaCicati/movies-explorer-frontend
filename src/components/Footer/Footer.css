@@ -28,7 +28,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  color: #000000;
+  color: #000;
   margin: 0;
 }
 
@@ -37,7 +37,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  color: #000000;
+  color: #000;
   margin-left: 20px;
 }
 
@@ -67,5 +67,4 @@
   .footer__copyright {
     margin-top: 18px;
   }
-  
 }

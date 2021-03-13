@@ -1,5 +1,6 @@
 import SectionHeading from "../SectionHeading/SectionHeading";
 import "./Techs.css";
+
 const Techs = () => {
   return (
     <section className="techs">
