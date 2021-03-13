@@ -1,0 +1,123 @@
+.techs {
+  padding: 100px 70px;
+}
+.techs__container {
+  margin-top: 90px;
+  text-align: center;
+}
+.techs__title {
+  letter-spacing: -0.04em;
+  color: #000000;
+  font-size: 50px;
+  line-height: 58px;
+  font-weight: normal;
+  margin: 0 0 26px 0;
+}
+
+.techs__paragraph {
+  letter-spacing: -0.04em;
+  color: #000000;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+.techs__list {
+  display: grid;
+  grid-template-columns: repeat(7, 90px);
+  justify-content: center;
+  column-gap: 10px;
+  align-items: center;
+  margin: 100px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.techs__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+  border-radius: 10px;
+  width: 90px;
+  height: 60px;
+}
+
+.techs__item-title {
+  letter-spacing: -0.04em;
+  color: #000000;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+}
+
+@media screen and (max-width: 870px) {
+  .techs {
+    padding: 90px 50px;
+  }
+  .techs__list-item {
+    width: 84px;
+    height: 57px;
+  }
+  .techs__item-title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .techs__list {
+    margin: 83px 0 0;
+    grid-template-columns: repeat(7, 84px);
+  }
+
+  .techs__paragraph {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .techs__container {
+    margin-top: 80px;
+  }
+
+  .techs__title {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs {
+    padding: 70px 18px;
+  }
+  .techs__list {
+    grid-template-columns: repeat(5, 84px);
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .techs__list {
+    grid-template-columns: repeat(4, 84px);
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .techs__list {
+    grid-template-columns: repeat(2, 84px);
+    gap: 10px;
+    margin-top: 50px;
+  }
+
+  .techs__title {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+
+  .techs__paragraph {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .techs__container {
+    margin-top: 60px;
+  }
+}
