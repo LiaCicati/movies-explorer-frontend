@@ -6,7 +6,7 @@ import MoviesNav from '../MoviesNav/MoviesNav'
 
 const Header = ({ loggedIn }) => {
   return (
-    <header className={`header ${!loggedIn ? "header_auth" : ""}`}>
+    <header className={`header ${!loggedIn ? "header_type_auth" : ""}`}>
       <Link to="/" className="header__link">
         <img className="header__logo" src={logo} alt="Logo"></img>
       </Link>

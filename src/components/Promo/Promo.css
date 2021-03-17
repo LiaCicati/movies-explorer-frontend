@@ -50,11 +50,12 @@
   }
 
   .promo__logo {
-    width: 100vh;
+    width:fit-content;
   }
 }
 
 @media screen and (max-width: 450px) {
+  
   .promo__title {
     font-size: 31px;
   }

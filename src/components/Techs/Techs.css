@@ -1,8 +1,12 @@
 .techs {
   padding: 100px 70px;
+  background: #f5f5f5;
 }
 
 .techs__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 90px;
   text-align: center;
 }
@@ -22,6 +26,7 @@
   font-size: 14px;
   line-height: 20px;
   margin: 0;
+  max-width: 460px;
 }
 
 .techs__list {

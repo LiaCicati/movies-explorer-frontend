@@ -1,6 +1,7 @@
 .footer {
   padding: 80px 70px 20px;
   text-align: center;
+  background: #fafafa;
 }
 
 .footer__title {
@@ -21,6 +22,8 @@
 .footer__container {
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 20px;
 }
 
 .footer__copyright {

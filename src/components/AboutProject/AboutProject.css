@@ -27,7 +27,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #000;
-  margin: 0;
+  margin: 26px 0 0;
 }
 
 .about__container {
@@ -50,6 +50,7 @@
   color: #000;
   background: #2be080;
   padding: 9px 14px;
+  margin: 0;
 }
 
 .about__duration-heading_type_light {
@@ -61,6 +62,7 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+  margin: 10px 0 0;
 }
 
 .about__duration:first-of-type {
@@ -72,7 +74,7 @@
 }
 
 .about__info:first-of-type {
-  margin-right: 30px;
+  margin-right: 40px;
 }
 
 @media screen and (max-width: 800px) {
@@ -83,10 +85,15 @@
   .about__info-paragraph {
     font-size: 12px;
     line-height: 18px;
+    margin-top: 22px;
   }
 
   .about__container:last-of-type {
     margin-top: 93px;
+  }
+
+  .about__info:first-of-type {
+    margin-right: 30px;
   }
 }
 
@@ -126,7 +133,6 @@
   .about__info-heading {
     font-size: 18px;
     line-height: 22px;
-    margin-bottom: 16px;
   }
 
   .about__info-paragraph {
@@ -145,5 +151,9 @@
 @media screen and (max-width: 450px) {
   .about {
     padding: 70px 18px;
+  }
+
+  .about__info-paragraph {
+    margin-top: 16px;
   }
 }

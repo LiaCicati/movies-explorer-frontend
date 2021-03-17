@@ -16,7 +16,7 @@
   line-height: 58px;
   margin: 0;
   letter-spacing: -0.04em;
-  color: #000000;
+  color: #000;
 }
 
 .student__image {
@@ -41,9 +41,8 @@
   font-size: 14px;
   line-height: 17px;
   margin-right: 20px;
-  color: #000000;
+  color: #000;
 }
-
 
 .student__description {
   font-weight: 400;
@@ -58,9 +57,8 @@
   font-size: 14px;
   line-height: 22px;
   margin: 18px 0 26px;
-  color: #000000;
+  color: #000;
 }
-
 
 @media screen and (max-width: 1060px) {
   .student__image {
@@ -95,7 +93,6 @@
 }
 
 @media screen and (max-width: 690px) {
-
   .student__container {
     flex-direction: column-reverse;
   }
@@ -139,12 +136,11 @@
   .student__container {
     margin-top: 60px;
   }
- .student__job {
-   margin : 20px 0;
- }
+  .student__job {
+    margin: 20px 0;
+  }
 
- .student__image {
-   height: 352px;
- }
+  .student__image {
+    height: 352px;
+  }
 }
-
