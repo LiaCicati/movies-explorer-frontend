@@ -2,6 +2,7 @@ import "./Promo.css";
 import promoLogo from "../../images/landing-logo.svg";
 
 const Promo = () => {
+
   return (
     <section className="promo">
       <h1 className="promo__title">

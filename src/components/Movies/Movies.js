@@ -1,6 +1,5 @@
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
-import Footer from '../Footer/Footer'
 import cards from '../../utils/movies';
 
 function Movies() {
@@ -13,7 +12,6 @@ function Movies() {
         isSavedMoviesPage={false}
         buttonMore={true}
       />
-      <Footer />
     </div>
   );
 }
