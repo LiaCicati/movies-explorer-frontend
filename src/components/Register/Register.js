@@ -1,8 +1,8 @@
 import "./Register.css";
 import Greeting from "../Greeting/Greeting";
-import { Link } from "react-router-dom";
 import Form from '../Form/Form';
 import Input from "../Input/Input";
+import Auth from '../Auth/Auth'
 
 const Register = () => {
 
@@ -36,17 +36,13 @@ const Register = () => {
           minLength="6"
         />
      </Form>
-      <div className="register__container">
-        <button className="register__submit-button" type="submit">
-          Зарегистрироваться
-        </button>
-        <div className="register__redirect">
-          <p className="register__paragraph">Уже зарегистрированы?</p>
-          <Link to="/signin" className="register__link">
-            Войти
-          </Link>
-        </div>
-      </div>
+
+    <Auth
+    buttonText="Зарегистрироваться"
+    paragraph="Уже зарегистрированы?"
+    linkText="Войти"
+    href="/signin"
+     />
     </section>
   );
 };
