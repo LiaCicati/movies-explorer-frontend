@@ -20,7 +20,7 @@
   margin: 0;
 }
 
-.auth__link {
+.auth__link-item {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -37,7 +37,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .auth__link {
+  .auth__link-item {
     font-size: 12px;
     line-height: 15px;
     margin-left: 7px;

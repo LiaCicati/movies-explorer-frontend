@@ -9,7 +9,7 @@ const Auth= ({ buttonText, linkText, paragraph, href }) => {
       </button>
       <div className="auth__redirect">
         <p className="auth__paragraph">{paragraph}</p>
-        <Link to={href} className="auth__link">
+        <Link to={href} className="auth__link-item">
           {linkText}
         </Link>
       </div>
