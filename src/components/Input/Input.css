@@ -31,5 +31,5 @@
 }
 
 .input:focus {
-  outline: 1px solid #2BE080;
+  border-bottom: 1px solid #2BE080;
 }

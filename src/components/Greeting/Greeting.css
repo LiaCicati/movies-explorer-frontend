@@ -12,13 +12,18 @@
 }
 
 .greeting__logo {
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.greeting__logo:hover {
+  opacity: 0.8;
 }
 
 .greeting__link {
-    width: fit-content;
-    margin-bottom: 40px;
+  width: fit-content;
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 450px) {

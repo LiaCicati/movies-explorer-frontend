@@ -9,7 +9,6 @@
   background-repeat: no-repeat;
   width: 34px;
   height: 34px;
-  margin-right: 10px;
 }
 
 .search__form {
@@ -28,7 +27,11 @@
   line-height: 20px;
   border: none;
   outline: none;
-  padding: 0;
+  padding: 0 10px;
+}
+
+.search__input:focus {
+  border-bottom: 1px solid #2be080;
 }
 
 .search__button {
@@ -41,6 +44,12 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 18px;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.search__button:hover {
+  opacity: 0.8;
 }
 
 .search__container {

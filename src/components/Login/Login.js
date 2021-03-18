@@ -11,13 +11,20 @@ const Login = () => {
     <section className="login">
       <Greeting text="Рады видеть!" loggedIn={loggedIn} />
       <Form name="login">
-        <Input label="E-mail" id="email" name="email" type="email" />
+        <Input
+          label="E-mail"
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Введите почту"
+        />
         <Input
           label="Пароль"
           id="password"
           name="password"
           type="password"
           minLength="6"
+          placeholder="Введите пароль"
         />
       </Form>
 

@@ -1,7 +1,7 @@
 import "./Auth.css";
 import { Link } from "react-router-dom";
 
-const Auth= ({ buttonText, linkText, paragraph, href }) => {
+const Auth = ({ buttonText, linkText, paragraph, href }) => {
   return (
     <div className="auth">
       <button className="auth__submit-button" type="submit">
@@ -9,7 +9,7 @@ const Auth= ({ buttonText, linkText, paragraph, href }) => {
       </button>
       <div className="auth__redirect">
         <p className="auth__paragraph">{paragraph}</p>
-        <Link to={href} className="auth__link-item">
+        <Link to={href} className="auth__link">
           {linkText}
         </Link>
       </div>

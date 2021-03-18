@@ -9,6 +9,12 @@
   color: #fff;
   border: none;
   outline: none;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.auth__submit-button:hover {
+  opacity: 0.8;
 }
 
 .auth__paragraph {
@@ -20,7 +26,7 @@
   margin: 0;
 }
 
-.auth__link-item {
+.auth__link {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -28,6 +34,11 @@
   color: #ff6838;
   text-decoration: none;
   margin-left: 6px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.auth__link:hover {
+  opacity: 0.8;
 }
 
 .auth__redirect {
@@ -37,7 +48,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .auth__link-item {
+  .auth__link {
     font-size: 12px;
     line-height: 15px;
     margin-left: 7px;
@@ -46,5 +57,9 @@
   .auth__paragraph {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .auth__redirect {
+    justify-content: center;
   }
 }

@@ -4,7 +4,7 @@ import Greeting from "../Greeting/Greeting";
 const Profile = () => {
   return (
     <section className="profile">
-      <Greeting text="Привет, Виталий!" loggedIn={true} />
+      <Greeting text="Привет, Лиа!" loggedIn={true} />
       <form className="profile__form" name="profile">
         <div className="profile__input-container">
           <label

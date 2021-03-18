@@ -10,7 +10,9 @@ const MoviesCard = ({ card, isSavedMoviesPage}) => {
   return (
     <li className="card">
       <div className="card__image-container">
+        <a className="card__image-link" href={card.link} target="_blank" rel="noreferrer">
         <img src={card.image} alt={card.title} className="card__image"></img>
+        </a>
         <button
           className={`card__button ${
             card.saved && !isSavedMoviesPage? "card__button_type_saved" : ""

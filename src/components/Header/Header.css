@@ -13,6 +13,13 @@
   display: flex;
 }
 
+.header__logo {
+  transition: opacity 0.3s ease-in-out;
+}
+.header__logo:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 800px) {
   .header {
     padding: 18px 30px;

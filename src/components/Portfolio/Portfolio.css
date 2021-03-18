@@ -26,6 +26,11 @@
   text-decoration: none;
   letter-spacing: -0.04em;
   color: #000000;
+  transition: opacity .2s ease-in-out;
+}
+
+.portfolio__link:hover {
+  opacity: 0.7;
 }
 
 .portfolio__link::after {

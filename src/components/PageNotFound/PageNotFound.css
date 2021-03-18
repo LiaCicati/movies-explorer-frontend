@@ -34,6 +34,11 @@
   line-height: 17px;
   width: fit-content;
   align-self: center;
+  transition: opacity .2s ease-in-out;
+}
+
+.error__link:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
@@ -70,4 +75,6 @@
     font-size: 12px;
     line-height: 15px;
   }
+
+
 }

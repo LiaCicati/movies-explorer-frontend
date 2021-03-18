@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../images/logo.svg";
 import AuthNav from "../AuthNav/AuthNav";
-import MoviesNav from '../MoviesNav/MoviesNav'
+import MoviesNav from "../MoviesNav/MoviesNav";
 
 const Header = ({ loggedIn }) => {
   return (
