@@ -1,3 +1,7 @@
+.auth {
+  margin-top: 180px;
+}
+
 .auth__submit-button {
   width: 100%;
   background: #ff6838;
@@ -47,7 +51,19 @@
   margin-top: 16px;
 }
 
+@media screen and (max-width: 800px) {
+
+  .auth__redirect {
+    justify-content: center;
+  }
+
+}
+
 @media screen and (max-width: 450px) {
+
+  .auth {
+    margin-top: 267px;
+  }
   .auth__link {
     font-size: 12px;
     line-height: 15px;
@@ -59,7 +75,4 @@
     line-height: 15px;
   }
 
-  .auth__redirect {
-    justify-content: center;
-  }
 }

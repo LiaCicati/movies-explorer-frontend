@@ -51,7 +51,7 @@
   }
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 945px) {
   .cards__list {
     grid-template-columns: repeat(2, 1fr);
     gap: 47px 30px;
