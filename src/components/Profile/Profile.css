@@ -4,6 +4,7 @@
   margin: 0 auto;
   text-align: center;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .profile__form {
