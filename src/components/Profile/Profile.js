@@ -2,8 +2,30 @@ import "./Profile.css";
 import Greeting from "../Greeting/Greeting";
 import Form from '../Form/Form'
 import Input from "../Input/Input";
+import { useState } from 'react'
 
 const Profile = () => {
+
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChangeInput = (evt) => {
+    const { name, validationMessage, value } = evt.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+
+    setErrors({
+      ...errors,
+      [name]: validationMessage,
+    });
+  };
 
   return (
     <section className="profile">
@@ -20,6 +42,9 @@ const Profile = () => {
           minLength="2"
           maxLength="30"
           autoComplete="off"
+          onChange={handleChangeInput}
+          value={values.name}
+          error={errors.name}
         />
 
         <Input
@@ -31,6 +56,9 @@ const Profile = () => {
           placeholder="Ваша почта"
           required
           autoComplete="off"
+          onChange={handleChangeInput}
+          value={values.email}
+          error={errors.email}
         />
       </Form>
 

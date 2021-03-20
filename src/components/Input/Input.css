@@ -59,7 +59,7 @@
 }
 
 .input:focus {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .input__container {
