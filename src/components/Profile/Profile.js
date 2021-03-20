@@ -30,7 +30,7 @@ const Profile = () => {
   return (
     <section className="profile">
       <Greeting text="Привет, Лиа!" loggedIn={true} />
-      <Form name="profile">
+      <Form name="profile" noValidate>
         <Input
           editProfile
           label="Имя"
