@@ -1,8 +1,14 @@
 import "./Form.css";
 
-const Form = ({ onSubmit, children }) => {
+const Form = ({ onSubmit, children, name, noValidate }) => {
+  
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form
+      className={`form ${name === "profile" ? "form_type_profile" : ""}`}
+      name={name}
+      onSubmit={onSubmit}
+      noValidate={noValidate}
+    >
       {children}
     </form>
   );

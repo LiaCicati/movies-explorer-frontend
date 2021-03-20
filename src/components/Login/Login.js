@@ -12,6 +12,7 @@ const Login = () => {
       <Greeting text="Рады видеть!" loggedIn={loggedIn} />
       <Form name="login">
         <Input
+          auth
           label="E-mail"
           id="email"
           name="email"
@@ -19,6 +20,7 @@ const Login = () => {
           placeholder="Введите почту"
         />
         <Input
+          auth
           label="Пароль"
           id="password"
           name="password"
@@ -26,14 +28,14 @@ const Login = () => {
           minLength="6"
           placeholder="Введите пароль"
         />
-      </Form>
 
-      <Auth
-        buttonText="Войти"
-        paragraph="Ещё не зарегистрированы?"
-        linkText="Регистрация"
-        href="/signup"
-      />
+        <Auth
+          buttonText="Войти"
+          paragraph="Ещё не зарегистрированы?"
+          linkText="Регистрация"
+          href="/signup"
+        />
+      </Form>
     </section>
   );
 };
