@@ -1,0 +1,151 @@
+.student {
+  text-align: start;
+  padding: 110px 70px 100px;
+}
+
+.student__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 66px;
+}
+
+.student__name {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  margin: 0;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+
+.student__image {
+  border-radius: 10px;
+  max-width: 270px;
+  max-height: 327px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.student__contacts {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  margin: 100px 0 0;
+}
+
+.student__contact-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 20px;
+  color: #000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.student__contact-link:hover {
+  opacity: 0.7;
+}
+
+.student__description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  max-width: 600px;
+  margin: 0;
+}
+
+.student__job {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 18px 0 26px;
+  color: #000;
+}
+
+@media screen and (max-width: 1060px) {
+  .student__image {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .student {
+    padding: 90px 50px;
+  }
+
+  .student__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .student__job {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 16px 0 20px;
+  }
+
+  .student__image {
+    max-width: 255px;
+    height: 307px;
+  }
+
+  .student__contacts {
+    margin: 87px 0 0;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .student__container {
+    flex-direction: column-reverse;
+  }
+
+  .student__image {
+    margin: 0 0 40px;
+    max-width: 292px;
+    height: 100%;
+  }
+
+  .student__name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .student__job {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .student__description {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .student__contact-link {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .student__contacts {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .student {
+    padding: 70px 14px;
+  }
+
+  .student__container {
+    margin-top: 60px;
+  }
+  .student__job {
+    margin: 20px 0;
+  }
+
+  .student__image {
+    height: 352px;
+  }
+}
