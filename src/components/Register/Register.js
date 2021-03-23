@@ -3,37 +3,19 @@ import Greeting from "../Greeting/Greeting";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import Auth from "../Auth/Auth";
-import { useState } from "react";
+import { useFormWithValidation } from '../../utils/utils';
 
-const Register = () => {
+const Register = ({ onRegister }) => {
   const loggedIn = false;
-
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const [errors, setErrors] = useState({});
-
-  const handleChangeInput = (evt) => {
-    const { name, validationMessage, value } = evt.target;
-
-    setValues({
-      ...values,
-      [name]: value,
-    });
-
-    setErrors({
-      ...errors,
-      [name]: validationMessage,
-    });
-  };
+  const { values, errors, isValid, handleChange } = useFormWithValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let { name, email, password } = values;
+    onRegister(name, email, password);
   };
 
+  
   return (
     <section className="register">
       <Greeting text="Добро пожаловать!" loggedIn={loggedIn} />
@@ -47,8 +29,8 @@ const Register = () => {
           minLength="2"
           maxLength="30"
           placeholder="Введите имя"
-          onChange={handleChangeInput}
-          value={values.name}
+          onChange={handleChange}
+          value={values.name || ""}
           error={errors.name}
         />
         <Input
@@ -58,9 +40,9 @@ const Register = () => {
           name="email"
           type="email"
           placeholder="Введите почту"
-          value={values.email}
+          value={values.email || ""}
           error={errors.email}
-          onChange={handleChangeInput}
+          onChange={handleChange}
         />
 
         <Input
@@ -71,12 +53,12 @@ const Register = () => {
           type="password"
           minLength="6"
           placeholder="Введите пароль"
-          value={values.password}
+          value={values.password || ""}
           error={errors.password}
-          onChange={handleChangeInput}
+          onChange={handleChange}
         />
-
         <Auth
+          isDisabledButton={!isValid}
           buttonText="Зарегистрироваться"
           paragraph="Уже зарегистрированы?"
           linkText="Войти"
