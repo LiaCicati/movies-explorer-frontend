@@ -196,10 +196,10 @@ const App = () => {
     mainApi
       .deleteMovie(userMovie._id)
       .then(() => {
-        const newsavedMovies = savedMovies.filter(
+        const newSavedMovies = savedMovies.filter(
           (savedMovie) => savedMovie.movieId !== movieId
         );
-        setSavedMovies(newsavedMovies);
+        setSavedMovies(newSavedMovies);
       })
       .catch((err) => {
         console.log(utils.getErrors(err));

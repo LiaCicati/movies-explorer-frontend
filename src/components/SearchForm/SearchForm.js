@@ -41,7 +41,7 @@ const SearchForm = ({ onSearchSubmit, isOn, handleToggle }) => {
         </div>
         <FilterCheckBox isOn={isOn} handleToggle={handleToggle} />
       </form>
-      <span className="search__error">{error}</span>
+      {error && <span className="search__error">{error}</span>}
     </section>
   );
 };
