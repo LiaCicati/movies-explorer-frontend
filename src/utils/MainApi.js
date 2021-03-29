@@ -12,72 +12,86 @@ export default class Api {
   }
 
   getUserInfo() {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/users/me`, {
       method: "GET",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     }).then((res) => this._getResponseData(res));
   }
 
-  updateProfile(name, email) {
+  updateProfile({ name, email }) {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({ name, email }),
     }).then((res) => this._getResponseData(res));
   }
 
-  addNewCard({
-    country,
-    director,
-    duration,
-    year,
-    description,
-    image,
-    trailer,
-    nameRU,
-    nameEN,
-    thumbnail,
-    movieId,
-  }) {
+  addNewCard(movie) {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies`, {
       method: "POST",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
-        movieId,
-        country,
-        director,
-        duration,
-        year,
-        description,
-        image,
-        trailer,
-        thumbnail,
-        nameRU,
-        nameEN,
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `https://api.nomoreparties.co${movie.image.url}`,
+        thumbnail: `https://api.nomoreparties.co${movie.image.url}`,
+        trailer: movie.trailerLink,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
       }),
     }).then((res) => this._getResponseData(res));
   }
 
   deleteMovie(movieId) {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies/${movieId}`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     }).then((res) => {
       return this._getResponseData(res);
     });
   }
 
   getSavedMovies() {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies`, {
       method: "GET",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     }).then((res) => this._getResponseData(res));
   }
 }
 
 export const mainApi = new Api({
-  url: "https://api.movies-explorer-lya.students.nomoredomains.monster",
+  url: "http://localhost:3001",
   headers: {
+    Accept: "application/json",
     authorization: `Bearer ${localStorage.getItem("token")}`,
     "Content-Type": "application/json",
   },
