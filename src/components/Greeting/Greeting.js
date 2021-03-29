@@ -10,7 +10,7 @@ const Greeting = ({ text, loggedIn }) => {
           <img src={logo} alt="Logo" className="greeting__logo"></img>
         </Link>
       )}
-      <h1 className="greeting__text">{text}</h1>
+      <h1 className="greeting__text">{"Привет, " + text}</h1>
     </div>
   );
 };

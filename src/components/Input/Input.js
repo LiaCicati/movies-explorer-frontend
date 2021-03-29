@@ -11,6 +11,7 @@ const Input = ({
   error,
   onChange,
   value,
+  defaultValue,
   editProfile,
   auth,
 }) => {
@@ -62,6 +63,7 @@ const Input = ({
             onChange={onChange}
             value={value}
             error={error}
+            defaultValue={defaultValue}
           />
         </div>
       )}
