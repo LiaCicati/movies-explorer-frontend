@@ -3,7 +3,7 @@ import Greeting from "../Greeting/Greeting";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import Auth from "../Auth/Auth";
-import { useFormWithValidation } from '../../utils/utils';
+import { useFormWithValidation } from '../../utils/formValidation';
 
 const Register = ({ onRegister }) => {
   const loggedIn = false;

@@ -5,7 +5,7 @@ import Form from "../Form/Form";
 import Input from "../Input/Input";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useFormWithValidation } from "../../utils/utils";
+import { useFormWithValidation } from "../../utils/formValidation";
 
 const Profile = ({ onSignOut, onUpdate }) => {
   const currentUser = useContext(CurrentUserContext);
