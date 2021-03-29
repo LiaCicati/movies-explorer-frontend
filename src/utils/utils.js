@@ -1,23 +1,72 @@
-import { useState } from "react";
+import { SHORT_MOVIE } from "./constants";
 
-export const useFormWithValidation = () => {
-  const [values, setValues] = useState({});
-  const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
+export const getCardImage = (card) => {
+  if (card.image && card.image.url)
+    return `https://api.nomoreparties.co${card.image.url}`;
+  if (card.image) return card.image;
+  return "https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found.jpg";
+};
 
-  const handleChange = (event) => {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
-    setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest("form").checkValidity());
-  };
+export const getMovieKey = (card) => {
+  if (card.id) return card.id;
+  if (card.movieId) return card.movieId;
+  return "key";
+};
 
-  return {
-    values,
-    errors,
-    isValid,
-    handleChange,
-  };
+export const getMovieDuration = (card) => {
+  return `${Math.floor(card?.duration / 60)}ч ${card?.duration % 60}м`;
+};
+
+export const checkSavedMovies = (allMovies, savedMovies) => {
+  savedMovies.forEach((savedMovie) => {
+    const movie = allMovies.find((item) => item.nameRU === savedMovie.nameRU);
+    movie.isSaved = true;
+  });
+  return allMovies;
+};
+
+export const searchMovie = (movies, value) =>
+  movies.filter((movie) => {
+    return movie.nameRU.toLowerCase().includes(value.toLowerCase());
+  });
+
+export const removeWhiteSpace = (value) => {
+  return value.trim();
+};
+
+export const filterMovies = (movies, checked) => {
+  return movies.filter((movie) =>
+    checked ? movie.duration <= SHORT_MOVIE : Number
+  );
+};
+
+export const getMoviesCount = () => {
+  switch (true) {
+    case window.innerWidth >= 944:
+      return 12;
+    case window.innerWidth >= 570:
+      return 8;
+    default:
+      return 5;
+  }
+};
+
+export const loadMovies = () => {
+  if (window.innerWidth >= 944) {
+    return 3;
+  }
+  return 2;
+};
+
+export const getErrors = (err) => {
+  if (err.message === "Ошибка: 400") return "Не верно заполнено одно из полей";
+  if (err.message === "Ошибка: 401") return "Неправильные почта или пароль";
+  if (err.message === "Ошибка: 403")
+    return "Токен не передан или передан не в том формате";
+  if (err.message === "Ошибка: 404") return "Данные не найдены";
+  if (err.message === "Ошибка: 409")
+    return "Пользователь с таким email уже существует";
+  if (err.message === "Ошибка: 429")
+    return "Слишком много запросов. Попробуйте позже";
+  return "Ошибка сервера";
 };
