@@ -16,7 +16,7 @@ const Header = () => {
       <Link to="/" className="header__link">
         <img className="header__logo" src={logo} alt="Logo"></img>
       </Link>
-      {!currentUser.email && <AuthNav />}
+      {!currentUser.email &&  <AuthNav /> }
       {currentUser.email && <MoviesNav />}
     </header>
   );

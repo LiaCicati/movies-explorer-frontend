@@ -3,19 +3,16 @@ import imageSaved from "../../images/saved-icon.svg";
 import iconDelete from "../../images/icon-delete.svg";
 import { useLocation } from "react-router-dom";
 import * as utils from "../../utils/utils";
-import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 const MoviesCard = ({ card, onCardClickButton }) => {
   const location = useLocation();
-  const currentUser = useContext(CurrentUserContext);
+
   const isSavedMoviesPage = location.pathname === "/saved-movies";
   const isMoviesPage = location.pathname === "/movies";
 
   const savedMovie = <img src={imageSaved} alt="Сохранено" />;
   const deleteIcon = <img src={iconDelete} alt="Удалить" />;
 
-  const isOwn = card.owner === currentUser._id;
 
   function handleCardClickButton() {
     onCardClickButton(card);
@@ -45,7 +42,7 @@ const MoviesCard = ({ card, onCardClickButton }) => {
         >
           {isMoviesPage && card.isSaved && savedMovie}
           {isMoviesPage && !card.isSaved && "Сохранить"}
-          {isOwn && isSavedMoviesPage && deleteIcon}
+          {isSavedMoviesPage && deleteIcon}
         </button>
       </div>
       <div className="card__text">

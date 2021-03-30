@@ -21,7 +21,7 @@ const Profile = ({ onSignOut, onUpdate }) => {
 
   return (
     <>
-      <Header loggedIn={true} />
+      <Header />
       <section className="profile">
         <Greeting text={currentUser.name} loggedIn={true} />
         <Form name="profile" noValidate onSubmit={handleSubmit}>

@@ -5,8 +5,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./App.css";
 import * as moviesApi from "../../utils/MoviesApi";
 import Main from "../Main/Main";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
@@ -78,9 +76,7 @@ const App = () => {
         if (res.email) {
           setIsInfoTooltipOpen(true);
           setTooltipImage(authSuccess);
-          setIsLoggedIn(true);
           onLogin(email, password);
-          setCurrentUser({ name, email });
           setMessage(messages.REGISTER_SUCCESS);
           history.push("/movies");
         }
@@ -97,6 +93,7 @@ const App = () => {
     localStorage.clear();
     setIsLoggedIn(false);
     setCurrentUser({});
+    setSavedMovies([]);
     history.push("/");
   }
 
@@ -115,7 +112,7 @@ const App = () => {
       closeAllModals();
     }
   }
- 
+
   useEffect(() => {
     document.addEventListener("keydown", handlerEscClose);
     document.addEventListener("click", closeByOverlay);
@@ -127,7 +124,8 @@ const App = () => {
 
   useEffect(() => {
     if (loggedIn) {
-      Promise.all([mainApi.getUserInfo(), mainApi.getSavedMovies()])
+      const token = localStorage.getItem("token");
+      Promise.all([mainApi.getUserInfo(token), mainApi.getSavedMovies(token)])
         .then(([userData, movies]) => {
           setCurrentUser(userData);
           setSavedMovies(movies);
@@ -141,21 +139,20 @@ const App = () => {
   function getAllMovies() {
     setMovieSearchError("");
     setIsLoading(true);
-      moviesApi
-        .getMovies()
-        .then((movies) => {
-          localStorage.setItem("all-movies", JSON.stringify(movies));
-          setMovies(utils.checkSavedMovies(movies, savedMovies));
-          setMovieSearchError(messages.MOVIES_NOT_FOUND);
-        })
-        .catch((err) => {
-          setMovieSearchError(messages.SERVER_ERROR);
-          console.log(utils.getErrors(err));
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    
+    moviesApi
+      .getMovies()
+      .then((movies) => {
+        localStorage.setItem("all-movies", JSON.stringify(movies));
+        setMovies(utils.checkSavedMovies(movies, savedMovies));
+        setMovieSearchError(messages.MOVIES_NOT_FOUND);
+      })
+      .catch((err) => {
+        setMovieSearchError(messages.SERVER_ERROR);
+        console.log(utils.getErrors(err));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   function handleUpdateUserInfo({ name, email }) {
@@ -230,9 +227,7 @@ const App = () => {
       <div className="app">
         <Switch>
           <Route exact path="/">
-            <Header />
             <Main />
-            <Footer />
           </Route>
           <ProtectedRoute
             path="/movies"

@@ -11,8 +11,7 @@ export default class Api {
     return Promise.reject(new Error(`Ошибка: ${res.status}`));
   }
 
-  getUserInfo() {
-    const token = localStorage.getItem("token");
+  getUserInfo(token) {
     return fetch(`${this.url}/users/me`, {
       method: "GET",
       headers: {
@@ -24,27 +23,17 @@ export default class Api {
   }
 
   updateProfile({ name, email }) {
-    const token = localStorage.getItem("token");
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this.headers,
       body: JSON.stringify({ name, email }),
     }).then((res) => this._getResponseData(res));
   }
 
   addNewCard(movie) {
-    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies`, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this.headers,
       body: JSON.stringify({
         country: movie.country,
         director: movie.director,
@@ -62,21 +51,15 @@ export default class Api {
   }
 
   deleteMovie(movieId) {
-    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies/${movieId}`, {
       method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this.headers,
     }).then((res) => {
       return this._getResponseData(res);
     });
   }
 
-  getSavedMovies() {
-    const token = localStorage.getItem("token");
+  getSavedMovies(token) {
     return fetch(`${this.url}/movies`, {
       method: "GET",
       headers: {
