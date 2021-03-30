@@ -96,6 +96,7 @@ const App = () => {
   function onSignOut() {
     localStorage.clear();
     setIsLoggedIn(false);
+    setCurrentUser({});
     history.push("/");
   }
 
@@ -229,7 +230,7 @@ const App = () => {
       <div className="app">
         <Switch>
           <Route exact path="/">
-            <Header loggedIn={false} />
+            <Header />
             <Main />
             <Footer />
           </Route>

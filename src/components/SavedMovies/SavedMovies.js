@@ -27,7 +27,7 @@ const SavedMovies = ({ savedMovies, onCardClickButton }) => {
 
   return (
     <>
-      <Header loggedIn={true} />
+      <Header/>
       <div className="saved-movies">
         <SearchForm
           onSearchSubmit={handleSearchSubmit}

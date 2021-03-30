@@ -53,7 +53,7 @@ const Movies = ({
 
   return (
     <>
-      <Header loggedIn={true} />
+      <Header/>
       <div className="movies">
         <SearchForm
           onSearchSubmit={handleSearchSubmit}
