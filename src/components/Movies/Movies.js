@@ -21,7 +21,6 @@ const Movies = ({
 
   const handleSearchSubmit = (value) => {
     setSearchValue(value);
-  
       onGetMovies();
     
   };

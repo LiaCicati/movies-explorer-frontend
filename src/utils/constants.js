@@ -8,4 +8,8 @@ export const KEYWORD_ENTERED_MESSAGE = 'Нужно ввести ключевое
 
 export const MOVIES_NOT_FOUND = 'Ничего не найдено';
 
+export const NO_SAVED_MOVIES = "Нет сохранённых фильмов";
+
+export const START_SEARCHING = "Начните поиск";
+
 export const SHORT_MOVIE = 40;

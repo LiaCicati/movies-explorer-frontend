@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import * as utils from "../../utils/utils";
+import { MOVIES_NOT_FOUND, NO_SAVED_MOVIES } from "../../utils/constants";
 
 const SavedMovies = ({ savedMovies, onCardClickButton }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -38,7 +39,9 @@ const SavedMovies = ({ savedMovies, onCardClickButton }) => {
           isSavedMoviesPage={true}
           buttonMore={false}
           onCardClickButton={onCardClickButton}
-          movieSearchError="Нет сохранённых фильмов"
+          movieSearchError={
+            savedMovies.length < 1 ? NO_SAVED_MOVIES : MOVIES_NOT_FOUND
+          }
         />
       </div>
       <Footer />

@@ -114,7 +114,7 @@ const App = () => {
       closeAllModals();
     }
   }
-
+ 
   useEffect(() => {
     document.addEventListener("keydown", handlerEscClose);
     document.addEventListener("click", closeByOverlay);
@@ -160,7 +160,6 @@ const App = () => {
   function handleUpdateUserInfo({ name, email }) {
     mainApi
       .updateProfile({ name, email })
-
       .then((data) => {
         if (data) {
           setCurrentUser(data);
@@ -220,7 +219,7 @@ const App = () => {
       setMovies(utils.checkSavedMovies(allMovies, savedMovies));
       setMovieSearchError(messages.MOVIES_NOT_FOUND);
     } else {
-      setMovieSearchError("");
+      setMovieSearchError(messages.START_SEARCHING);
       setMovies([]);
     }
   }, [savedMovies]);
