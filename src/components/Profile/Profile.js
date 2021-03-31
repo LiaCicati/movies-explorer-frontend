@@ -3,11 +3,13 @@ import Header from "../Header/Header";
 import Greeting from "../Greeting/Greeting";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useFormWithValidation } from "../../utils/formValidation";
 
 const Profile = ({ onSignOut, onUpdate }) => {
+  const [isVisibleSubmitButton, setVisibleSubmitButton] = useState(false);
+
   const currentUser = useContext(CurrentUserContext);
   const { values, errors, isValid, handleChange } = useFormWithValidation();
 
@@ -17,6 +19,11 @@ const Profile = ({ onSignOut, onUpdate }) => {
       name: values.name || currentUser.name,
       email: values.email || currentUser.email,
     });
+    setVisibleSubmitButton(false);
+  }
+
+  function handleClickEditButton() {
+    setVisibleSubmitButton(true);
   }
 
   return (
@@ -56,22 +63,37 @@ const Profile = ({ onSignOut, onUpdate }) => {
           />
 
           <div className="profile__container">
-            <button
-              type="submit"
-              disabled={!isValid}
-              className={`profile__button ${
-                !isValid ? "profile__button_disabled" : ""
-              }`}
-            >
-              Редактировать
-            </button>
-            <button
-              type="button"
-              className="profile__button profile__button_type_logout"
-              onClick={onSignOut}
-            >
-              Выйти из аккаунта
-            </button>
+            {!isVisibleSubmitButton && (
+              <>
+                <button
+                  type="button"
+                  className={`profile__button`}
+                  onClick={handleClickEditButton}
+                >
+                  Редактировать
+                </button>
+
+                <button
+                  type="button"
+                  className="profile__button profile__button_type_logout"
+                  onClick={onSignOut}
+                >
+                  Выйти из аккаунта
+                </button>
+              </>
+            )}
+
+            {isVisibleSubmitButton && (
+              <button
+                className={`profile__submit-button ${
+                  !isValid ? "profile__submit-button_disabled" : ""
+                }`}
+                type="submit"
+                disabled={!isValid}
+              >
+                Сохранить
+              </button>
+            )}
           </div>
         </Form>
       </section>
