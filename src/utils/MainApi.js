@@ -72,7 +72,7 @@ export default class Api {
 }
 
 export const mainApi = new Api({
-  url: "http://localhost:3001",
+  url: "https://api.movies-explorer-lya.students.nomoredomains.monster",
   headers: {
     Accept: "application/json",
     authorization: `Bearer ${localStorage.getItem("token")}`,
