@@ -9,6 +9,7 @@ import { useFormWithValidation } from "../../utils/formValidation";
 
 const Profile = ({ onSignOut, onUpdate }) => {
   const [isVisibleSubmitButton, setVisibleSubmitButton] = useState(false);
+  const [isDisabledInput, setDisabledInput] = useState(true);
 
   const currentUser = useContext(CurrentUserContext);
   const { values, errors, isValid, handleChange } = useFormWithValidation();
@@ -20,9 +21,11 @@ const Profile = ({ onSignOut, onUpdate }) => {
       email: values.email || currentUser.email,
     });
     setVisibleSubmitButton(false);
+    setDisabledInput(true);
   }
 
   function handleClickEditButton() {
+    setDisabledInput(false);
     setVisibleSubmitButton(true);
   }
 
@@ -46,6 +49,7 @@ const Profile = ({ onSignOut, onUpdate }) => {
             onChange={handleChange}
             defaultValue={currentUser.name}
             error={errors.name}
+            disabled={isDisabledInput}
           />
 
           <Input
@@ -60,6 +64,7 @@ const Profile = ({ onSignOut, onUpdate }) => {
             onChange={handleChange}
             defaultValue={currentUser.email}
             error={errors.email}
+            disabled={isDisabledInput}
           />
 
           <div className="profile__container">

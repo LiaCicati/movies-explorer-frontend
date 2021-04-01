@@ -14,6 +14,7 @@ const Input = ({
   defaultValue,
   editProfile,
   auth,
+  disabled
 }) => {
   return (
     <>
@@ -64,6 +65,7 @@ const Input = ({
             value={value}
             error={error}
             defaultValue={defaultValue}
+            disabled={disabled}
           />
         </div>
       )}
