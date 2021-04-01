@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 import Greeting from "../Greeting/Greeting";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useFormWithValidation } from "../../utils/formValidation";
 
@@ -12,7 +12,7 @@ const Profile = ({ onSignOut, onUpdate }) => {
   const [isDisabledInput, setDisabledInput] = useState(true);
 
   const currentUser = useContext(CurrentUserContext);
-  const { values, errors, isValid, handleChange } = useFormWithValidation();
+  const { values, errors, isValid, handleChange, setValues } = useFormWithValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -28,6 +28,10 @@ const Profile = ({ onSignOut, onUpdate }) => {
     setDisabledInput(false);
     setVisibleSubmitButton(true);
   }
+
+  useEffect(() => {
+    setValues(currentUser);
+  }, [currentUser, setValues]);
 
   return (
     <>
@@ -47,7 +51,7 @@ const Profile = ({ onSignOut, onUpdate }) => {
             maxLength="30"
             autoComplete="off"
             onChange={handleChange}
-            defaultValue={currentUser.name}
+            value={values.name || ""}
             error={errors.name}
             disabled={isDisabledInput}
           />
@@ -62,7 +66,7 @@ const Profile = ({ onSignOut, onUpdate }) => {
             required
             autoComplete="off"
             onChange={handleChange}
-            defaultValue={currentUser.email}
+            value={values.email || ""}
             error={errors.email}
             disabled={isDisabledInput}
           />

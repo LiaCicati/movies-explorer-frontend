@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import * as auth from "../../utils/auth";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./App.css";
@@ -31,6 +32,8 @@ const App = () => {
   const [movieSearchError, setMovieSearchError] = useState("");
 
   const history = useHistory();
+  let location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +43,7 @@ const App = () => {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            history.push("/movies");
+            history.push(path);
           }
         })
         .catch((err) => {
@@ -268,7 +271,6 @@ const App = () => {
           onClose={closeAllModals}
           image={tooltipImage}
           message={message}
-          loggedIn={loggedIn}
         />
       </div>
     </CurrentUserContext.Provider>
