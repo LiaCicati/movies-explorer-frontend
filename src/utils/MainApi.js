@@ -23,17 +23,27 @@ export default class Api {
   }
 
   updateProfile({ name, email }) {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({ name, email }),
     }).then((res) => this._getResponseData(res));
   }
 
   addNewCard(movie) {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies`, {
       method: "POST",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         country: movie.country,
         director: movie.director,
@@ -51,9 +61,14 @@ export default class Api {
   }
 
   deleteMovie(movieId) {
+    const token = localStorage.getItem("token");
     return fetch(`${this.url}/movies/${movieId}`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     }).then((res) => {
       return this._getResponseData(res);
     });
