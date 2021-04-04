@@ -32,7 +32,7 @@ const App = () => {
   const [movieSearchError, setMovieSearchError] = useState("");
 
   const history = useHistory();
-  let location = useLocation();
+  const location = useLocation();
   const path = location.pathname;
 
   useEffect(() => {
@@ -93,7 +93,9 @@ const App = () => {
   }
 
   function onSignOut() {
-    localStorage.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('current-user');
+    localStorage.removeItem('saved-movies');
     setIsLoggedIn(false);
     setCurrentUser({});
     setSavedMovies([]);
