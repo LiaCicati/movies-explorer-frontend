@@ -21,7 +21,9 @@ const Movies = ({
 
   const handleSearchSubmit = (value) => {
     setSearchValue(value);
+    if(!cards.length) {
       onGetMovies();
+    }
     
   };
 
