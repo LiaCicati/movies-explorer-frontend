@@ -30,7 +30,7 @@
   border-radius: 20px;
   transition: 0.5s;
   background: #fff;
-  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.1);
 }
 
 .switch__checkbox:checked + .switch__label .switch__button {

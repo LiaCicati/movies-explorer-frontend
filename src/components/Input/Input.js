@@ -11,8 +11,10 @@ const Input = ({
   error,
   onChange,
   value,
+  defaultValue,
   editProfile,
   auth,
+  disabled
 }) => {
   return (
     <>
@@ -62,6 +64,8 @@ const Input = ({
             onChange={onChange}
             value={value}
             error={error}
+            defaultValue={defaultValue}
+            disabled={disabled}
           />
         </div>
       )}

@@ -21,6 +21,15 @@
   opacity: 0.8;
 }
 
+.auth__submit-button_disabled {
+  background-color: #f8f8f8;
+  cursor: default;
+  pointer-events: none;
+  border: 1px solid #ff6838;
+  color: #000;
+  opacity: 0.3;
+}
+
 .auth__paragraph {
   font-weight: 400;
   font-size: 14px;
@@ -52,15 +61,12 @@
 }
 
 @media screen and (max-width: 800px) {
-
   .auth__redirect {
     justify-content: center;
   }
-
 }
 
 @media screen and (max-width: 450px) {
-
   .auth {
     margin-top: 267px;
   }
@@ -74,5 +80,4 @@
     font-size: 12px;
     line-height: 15px;
   }
-
 }

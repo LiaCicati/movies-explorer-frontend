@@ -1,14 +1,10 @@
 import "./FilterCheckBox.css";
 import Switch from "../Switch/Switch";
-import { useState } from "react";
 
-const FilterCheckBox = () => {
-    
-  const [value, setValue] = useState(false);
-
+const FilterCheckBox = ({ isOn, handleToggle }) => {
   return (
     <div className="filter">
-      <Switch isOn={value} handleToggle={() => setValue(!value)} />
+      <Switch isOn={isOn} handleToggle={handleToggle} />
       <span className="filter__title">Короткометражки</span>
     </div>
   );

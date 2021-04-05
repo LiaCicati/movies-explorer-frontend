@@ -1,74 +1,112 @@
 import "./Profile.css";
+import Header from "../Header/Header";
 import Greeting from "../Greeting/Greeting";
-import Form from '../Form/Form'
+import Form from "../Form/Form";
 import Input from "../Input/Input";
-import { useState } from 'react'
+import { useContext, useState, useEffect } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useFormWithValidation } from "../../utils/formValidation";
 
-const Profile = () => {
+const Profile = ({ onSignOut, onUpdate }) => {
+  const [isVisibleSubmitButton, setVisibleSubmitButton] = useState(false);
+  const [isDisabledInput, setDisabledInput] = useState(true);
 
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-  });
+  const currentUser = useContext(CurrentUserContext);
+  const { values, errors, isValid, handleChange, setValues } = useFormWithValidation();
 
-  const [errors, setErrors] = useState({});
-
-  const handleChangeInput = (evt) => {
-    const { name, validationMessage, value } = evt.target;
-
-    setValues({
-      ...values,
-      [name]: value,
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onUpdate({
+      name: values.name || currentUser.name,
+      email: values.email || currentUser.email,
     });
+    setVisibleSubmitButton(false);
+    setDisabledInput(true);
+  }
 
-    setErrors({
-      ...errors,
-      [name]: validationMessage,
-    });
-  };
+  function handleClickEditButton() {
+    setDisabledInput(false);
+    setVisibleSubmitButton(true);
+  }
+
+  useEffect(() => {
+    setValues(currentUser);
+  }, [currentUser, setValues]);
 
   return (
-    <section className="profile">
-      <Greeting text="Привет, Лиа!" loggedIn={true} />
-      <Form name="profile" noValidate>
-        <Input
-          editProfile
-          label="Имя"
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Ваше имя"
-          required
-          minLength="2"
-          maxLength="30"
-          autoComplete="off"
-          onChange={handleChangeInput}
-          value={values.name}
-          error={errors.name}
-        />
+    <>
+      <Header />
+      <section className="profile">
+        <Greeting text={currentUser.name} loggedIn={true} />
+        <Form name="profile" noValidate onSubmit={handleSubmit}>
+          <Input
+            editProfile
+            label="Имя"
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Ваше имя"
+            required
+            minLength="2"
+            maxLength="30"
+            autoComplete="off"
+            onChange={handleChange}
+            value={values.name || ""}
+            error={errors.name}
+            disabled={isDisabledInput}
+          />
 
-        <Input
-          editProfile
-          label="Почта"
-          id="email"
-          name="email"
-          type="email"
-          placeholder="Ваша почта"
-          required
-          autoComplete="off"
-          onChange={handleChangeInput}
-          value={values.email}
-          error={errors.email}
-        />
-      </Form>
+          <Input
+            editProfile
+            label="Почта"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Ваша почта"
+            required
+            autoComplete="off"
+            onChange={handleChange}
+            value={values.email || ""}
+            error={errors.email}
+            disabled={isDisabledInput}
+          />
 
-      <div className="profile__container">
-        <button className="profile__button">Редактировать</button>
-        <button className="profile__button profile__button_type_logout">
-          Выйти из аккаунта
-        </button>
-      </div>
-    </section>
+          <div className="profile__container">
+            {!isVisibleSubmitButton && (
+              <>
+                <button
+                  type="button"
+                  className={`profile__button`}
+                  onClick={handleClickEditButton}
+                >
+                  Редактировать
+                </button>
+
+                <button
+                  type="button"
+                  className="profile__button profile__button_type_logout"
+                  onClick={onSignOut}
+                >
+                  Выйти из аккаунта
+                </button>
+              </>
+            )}
+
+            {isVisibleSubmitButton && (
+              <button
+                className={`profile__submit-button ${
+                  !isValid ? "profile__submit-button_disabled" : ""
+                }`}
+                type="submit"
+                disabled={!isValid}
+              >
+                Сохранить
+              </button>
+            )}
+          </div>
+        </Form>
+      </section>
+    </>
   );
 };
 

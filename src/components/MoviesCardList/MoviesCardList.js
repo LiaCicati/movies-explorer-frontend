@@ -1,45 +1,43 @@
-import React, { useState } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
-import Preloader from "../Preloader/Preloader";
+import * as utils from "../../utils/utils";
 
-const MoviesCardList = ({ cards, isSavedMoviesPage, buttonMore }) => {
-
-  const [isLoading, setLoading] = useState(false);
-
-  const handlePreloader = () => {
-    setLoading(true);
-  };
+const MoviesCardList = ({
+  cards,
+  buttonMore,
+  onClickMoreButton,
+  onCardClickButton,
+  movieSearchError,
+}) => {
+  const areVisibleCards = cards.length > 0;
 
   return (
     <section className="cards">
-      <ul className="cards__list">
-        {cards.map((card) => (
-          <MoviesCard
-            key={card.id}
-            card={card}
-            isSavedMoviesPage={isSavedMoviesPage}
-          />
-        ))}
-      </ul>
+      {!areVisibleCards && <p className="cards__message">{movieSearchError}</p>}
 
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        buttonMore && (
-          <div className="cards__button-container">
-            <button
-              className="cards__button"
-              type="button"
-              name="more"
-              onClick={handlePreloader}
-            >
-              Ещё
-            </button>
-          </div>
-        )
+      {areVisibleCards && (
+        <ul className="cards__list">
+          {cards.map((card) => (
+            <MoviesCard
+              key={utils.getMovieKey(card)}
+              card={card}
+              onCardClickButton={onCardClickButton}
+            />
+          ))}
+        </ul>
       )}
-      
+      {buttonMore && (
+        <div className="cards__button-container">
+          <button
+            className="cards__button"
+            type="button"
+            name="more"
+            onClick={onClickMoreButton}
+          >
+            Ещё
+          </button>
+        </div>
+      )}
     </section>
   );
 };
